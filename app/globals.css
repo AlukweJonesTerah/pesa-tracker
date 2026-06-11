@@ -220,3 +220,66 @@ label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px
 @media (prefers-reduced-motion: no-preference) {
   .card, .group-list a { transition: border-color 0.15s ease; }
 }
+
+/* ── v2 additions ── */
+select {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-family: var(--font-body);
+  background: #fff;
+  color: var(--ink);
+}
+select:focus { border-color: var(--green); outline: 2px solid var(--green); outline-offset: 2px; }
+
+.participants {
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px 14px 8px;
+  margin: 0;
+}
+.participants legend {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  padding: 0 6px;
+}
+.check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+.check input { accent-color: var(--green); width: 16px; height: 16px; }
+
+.btn-delete {
+  background: none;
+  border: none;
+  color: var(--amber);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+.btn-delete:hover { background: var(--amber-soft); }
+
+.btn-leave {
+  background: none;
+  border: 1.5px solid var(--line);
+  color: var(--ink-soft);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 9px 16px;
+  border-radius: var(--radius);
+}
+.btn-leave:hover { border-color: var(--amber); color: var(--amber); }

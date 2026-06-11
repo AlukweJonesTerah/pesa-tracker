@@ -26,4 +26,14 @@ export type Expense = {
   description: string;
   amount_cents: number;
   created_at: string;
+  participant_ids: string[]; // v2: aggregated from expense_participants
+};
+
+export type Settlement = {
+  id: number;
+  group_id: number;
+  from_user: string;
+  to_user: string;
+  amount_cents: number;
+  created_at: string;
 };
