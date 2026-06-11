@@ -133,7 +133,7 @@ export default async function GroupPage({
         <div className="card">
           <h2>Who pays whom</h2>
           {transfers.length === 0 ? (
-            <p className="all-square">Everyone is square 🎉</p>
+            <p className="all-square">Everyone is square </p>
           ) : (
             transfers.map((t, i) => (
               <div className="settle" key={i}>
