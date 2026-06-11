@@ -35,7 +35,7 @@ export default async function GroupPage({
 
   const [groupRows, members, expenses, settlements] = await Promise.all([
     sql`SELECT id, name, code, created_by FROM groups WHERE id = ${groupId}`,
-    sql`SELECT * FROM members WHERE group_id = ${groupId} ORDER BY name` as Promise<Member[]>,
+    sql`SELECT * FROM members WHERE group_id = ${groupId} ORDER BY name` as unknown as Promise<Member[]>,
     sql`
       SELECT e.*,
              COALESCE(
@@ -47,12 +47,12 @@ export default async function GroupPage({
       WHERE e.group_id = ${groupId}
       GROUP BY e.id
       ORDER BY e.created_at DESC
-    ` as Promise<Expense[]>,
+    ` as unknown as Promise<Expense[]>,
     sql`
       SELECT * FROM settlements
       WHERE group_id = ${groupId}
       ORDER BY created_at DESC
-    ` as Promise<Settlement[]>,
+    ` as unknown as Promise<Settlement[]>,
   ]);
   if (groupRows.length === 0) notFound();
   const group = groupRows[0];
@@ -133,7 +133,7 @@ export default async function GroupPage({
         <div className="card">
           <h2>Who pays whom</h2>
           {transfers.length === 0 ? (
-            <p className="all-square">Everyone is square</p>
+            <p className="all-square">Everyone is square 🎉</p>
           ) : (
             transfers.map((t, i) => (
               <div className="settle" key={i}>
